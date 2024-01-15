@@ -1,4 +1,10 @@
 import speech_recognition as sr
+import pyttsx3
+
+def speak_text(command):
+    engine = pyttsx3.init()
+    engine.say(command)
+    engine.runAndWait()
 
 r = sr.Recognizer()
 
@@ -26,5 +32,6 @@ def output_text(text):
 while(True):
     text = record_text()
     output_text(text)
+    speak_text(text)
 
     print("Text wrote")
